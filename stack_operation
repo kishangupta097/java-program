@@ -1,0 +1,93 @@
+import java.util.*;
+ class Main
+
+	{
+		public static void main(String arg[])
+		{
+		int choice=0;
+		System.out.println("Program for array implementation of satck");
+		System.out.println("1 :- push\n2:-pop\n3:-disp\n4:-exit");
+		Scanner sc = new Scanner(System.in);
+		Stack s = new Stack();
+	//	System.out.println("Enter the choice:-");
+			while(choice != 4)
+			{
+			    	System.out.println("Enter the choice:-");
+			    		choice = sc.nextInt();
+
+				switch(choice)
+				{
+				case 1:
+					s.push(sc);
+					break;
+				case 2:
+					s.pop();
+					break;
+				case 3:
+					s.disp();break;
+				case 4:
+					System.out.println("Exiting");
+					System.exit(0);break;
+				default:
+					System.out.println("Please enter valid choice");
+					break;				
+				}
+			}
+		}
+	}
+	
+ class Stack
+{
+int top;
+int maxsize=10;
+int[] arr= new int[maxsize];
+		boolean isEmpty()
+		{
+		return top<0;
+		}
+			Stack()
+			{
+			top=-1;
+			}
+		boolean push(Scanner sc)
+		{
+			if(top==maxsize-1)
+			{
+			System.out.println("stack is full");
+			return false;
+			}
+			else
+			{
+			System.out.println("Enter the elememt");
+			int val=sc.nextInt();
+			top++;
+			arr[top]=val;
+			 System.out.println("item is pushed:-");
+			 return true;
+			}
+		}	
+	boolean pop()
+	{
+		if(isEmpty())
+		{
+		System.out.println("Stack is Empty and overflow condition is occure");
+		return true;
+		//break;
+		}
+		else
+		{
+		System.out.println("Item is poped"+arr[top]);
+		top--;
+		return false;
+		}
+	}	
+	void disp()
+	{
+	System.out.println("item in stack ");
+		for(int i=top;i>0;i--)
+		{
+			System.out.println(arr[i]);
+		}
+	}	
+}
+		
